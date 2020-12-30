@@ -13,6 +13,7 @@ require (
 	github.com/docker/docker v20.10.1+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
+	github.com/go-chi/chi v4.1.2+incompatible // indirect
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/golang-migrate/migrate v3.5.4+incompatible
 	//github.com/golang-migrate/migrate/v4 v4.14.1 // indirect

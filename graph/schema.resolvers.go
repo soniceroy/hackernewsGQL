@@ -11,6 +11,8 @@ import (
 	"github.com/soniceroy/hackernewsGQL/graph/generated"
 	"github.com/soniceroy/hackernewsGQL/graph/model"
 	"github.com/soniceroy/hackernewsGQL/internal/links"
+	"github.com/soniceroy/hackernewsGQL/internal/users"
+	"github.com/soniceroy/hackernewsGQL/pkg/jwt"
 )
 
 func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) (*model.Link, error) {
@@ -22,7 +24,15 @@ func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) 
 }
 
 func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (string, error) {
-	panic(fmt.Errorf("not implemented"))
+	var user users.User
+	user.Username = input.Username
+	user.Password = input.Password
+	user.Create()
+	token, err := jwt.GenerateToken(user.Username)
+	if err != nil {
+		return "", err
+	}
+	return token, nil
 }
 
 func (r *mutationResolver) Login(ctx context.Context, input model.Login) (string, error) {
