@@ -9,8 +9,8 @@ import (
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/soniceroy/hackernewsGQL/graph"
 	"github.com/soniceroy/hackernewsGQL/graph/generated"
+	"github.com/soniceroy/hackernewsGQL/internal/auth"
 	database "github.com/soniceroy/hackernewsGQL/internal/pkg/db/mysql"
-	"github.com/soniceroy/internal/auth"
 )
 
 const defaultPort = "8080"
